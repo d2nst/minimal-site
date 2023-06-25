@@ -13,7 +13,7 @@ t1.fromTo(
   },
   {
     y: 0,
-    duration: 1,
+    duration: 0.5,
   }
 );
 t2.fromTo(
@@ -55,7 +55,6 @@ ScrollTrigger.create({
 });
 
 //텍스트 숨김
-
 headerText.forEach((item) => {
   let triggerElement = item.parentElement;
   let targetElement = item;
