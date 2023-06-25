@@ -47,7 +47,7 @@ class SmoothScroll {
 
 const scroll = new SmoothScroll({
   element: window,
-  strength: 10,
+  strength: 12,
   acceleration: 1.0,
   deceleration: 0.975,
 });
