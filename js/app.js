@@ -4,12 +4,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const headerText = document.querySelectorAll('.text');
 class SmoothScroll {
-  constructor({
-    element = window,
-    strength = 12,
-    acceleration = 1.2,
-    deceleration = 0.975,
-  } = {}) {
+  constructor({ element = window, strength = 12, acceleration = 1.2, deceleration = 0.975 } = {}) {
     this.element = element;
     this.distance = strength;
     this.acceleration = acceleration;
@@ -42,14 +37,9 @@ class SmoothScroll {
 
   scroll() {
     if (this.running) {
-      this.currentDistance *=
-        this.isDistanceAsc === true ? this.acceleration : this.deceleration;
-      Math.abs(this.currentDistance) < 0.1 && this.isDistanceAsc === false
-        ? (this.running = false)
-        : 1;
-      Math.abs(this.currentDistance) >= Math.abs(this.distance)
-        ? (this.isDistanceAsc = false)
-        : 1;
+      this.currentDistance *= this.isDistanceAsc === true ? this.acceleration : this.deceleration;
+      Math.abs(this.currentDistance) < 0.1 && this.isDistanceAsc === false ? (this.running = false) : 1;
+      Math.abs(this.currentDistance) >= Math.abs(this.distance) ? (this.isDistanceAsc = false) : 1;
 
       this.top += this.currentDistance;
       this.element.scrollTo(0, this.top);
@@ -144,8 +134,8 @@ headerCircleImg.forEach((item) => {
       trigger: triggerElement,
       // trigger element - viewport
       start: 'top top',
-      end: 'bottom bottom',
-      scrub: 7,
+      end: '+=1020 ',
+      scrub: 1,
       markers: true,
     },
   });
