@@ -77,7 +77,7 @@ t2.fromTo(
 // 로고 위치, 사이즈 변경
 ScrollTrigger.create({
   animation: t1,
-  markers: true,
+  // markers: true,
   start: 'top 50%',
   end: '100px 30%',
   trigger: '.nav-logo',
