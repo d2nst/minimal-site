@@ -4,15 +4,24 @@ gsap.registerPlugin(ScrollTrigger);
 
 const headerText = document.querySelectorAll('.text');
 class SmoothScroll {
-  constructor({ element = window, strength = 10, acceleration = 1.2, deceleration = 0.975 } = {}) {
+  constructor({
+    element = window,
+    strength = 12,
+    acceleration = 1.2,
+    deceleration = 0.975,
+  } = {}) {
     this.element = element;
     this.distance = strength;
     this.acceleration = acceleration;
     this.deceleration = deceleration;
     this.running = false;
 
-    this.element.addEventListener('wheel', this.scrollHandler.bind(this), { passive: false });
-    this.element.addEventListener('mousewheel', this.scrollHandler.bind(this), { passive: false });
+    this.element.addEventListener('wheel', this.scrollHandler.bind(this), {
+      passive: false,
+    });
+    this.element.addEventListener('mousewheel', this.scrollHandler.bind(this), {
+      passive: false,
+    });
     this.scroll = this.scroll.bind(this);
   }
 
@@ -33,9 +42,14 @@ class SmoothScroll {
 
   scroll() {
     if (this.running) {
-      this.currentDistance *= this.isDistanceAsc === true ? this.acceleration : this.deceleration;
-      Math.abs(this.currentDistance) < 0.1 && this.isDistanceAsc === false ? (this.running = false) : 1;
-      Math.abs(this.currentDistance) >= Math.abs(this.distance) ? (this.isDistanceAsc = false) : 1;
+      this.currentDistance *=
+        this.isDistanceAsc === true ? this.acceleration : this.deceleration;
+      Math.abs(this.currentDistance) < 0.1 && this.isDistanceAsc === false
+        ? (this.running = false)
+        : 1;
+      Math.abs(this.currentDistance) >= Math.abs(this.distance)
+        ? (this.isDistanceAsc = false)
+        : 1;
 
       this.top += this.currentDistance;
       this.element.scrollTo(0, this.top);
@@ -60,7 +74,7 @@ t1.fromTo(
   },
   {
     y: 0,
-    duration: 1,
+    duration: 0.5,
   }
 );
 t2.fromTo(
@@ -93,7 +107,6 @@ ScrollTrigger.create({
 });
 
 // 네브바 상단고정
-
 ScrollTrigger.create({
   // markers: true,
   start: 'top top',
@@ -102,7 +115,6 @@ ScrollTrigger.create({
 });
 
 //텍스트 숨김
-
 headerText.forEach((item) => {
   let triggerElement = item.parentElement;
   let targetElement = item;
@@ -112,11 +124,44 @@ headerText.forEach((item) => {
       trigger: triggerElement,
       start: '-100% top',
       end: '30% top',
-      scrub: 0.8,
+      scrub: 1,
     },
   });
   tl.to(targetElement, {
     y: '100%',
     duration: 1,
   });
+});
+
+// header 이미지 사이즈
+const headerCircleImg = document.querySelectorAll('.header-circle__box');
+headerCircleImg.forEach((item) => {
+  let triggerElement = item.parentElement;
+  let targetElement = item;
+
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: triggerElement,
+      // trigger element - viewport
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: 7,
+      markers: true,
+    },
+  });
+  tl.fromTo(
+    targetElement,
+    {
+      width: '35em',
+      height: '35em',
+      borderRadius: '35em',
+      duration: 10,
+    },
+    {
+      width: '100vw',
+      height: '100vh',
+      borderRadius: '0',
+      duration: 1,
+    }
+  );
 });
