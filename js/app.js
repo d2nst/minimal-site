@@ -159,7 +159,7 @@ const imgWrapOdd = document.querySelectorAll('.img__list:nth-child(odd)');
 
 imgWrapOdd.forEach((item) => {
   let triggerElement = item;
-  let targetElement = ('body', '.container.o-nav');
+  let targetElement = 'body, .container.o-nav';
   let tl = gsap.timeline({
     scrollTrigger: {
       trigger: triggerElement,
@@ -191,7 +191,7 @@ const contentWrap = document.querySelectorAll(
 
 contentWrap.forEach((item) => {
   let triggerElement = item;
-  let targetElement = ('body', '.container.o-nav');
+  let targetElement = 'body, .container.o-nav';
   let tl = gsap.timeline({
     scrollTrigger: {
       trigger: triggerElement,
