@@ -159,3 +159,6 @@ tl.fromTo(
     duration: 1,
   }
 );
+// Grid Title Change
+const titleList = document.querySelectorAll('.title-list');
+const imgList = document.querySelectorAll('.img-list');
