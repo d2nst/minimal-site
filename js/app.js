@@ -3,69 +3,6 @@
 gsap.registerPlugin(ScrollTrigger);
 
 const headerText = document.querySelectorAll('.text');
-// class SmoothScroll {
-//   constructor({
-//     element = window,
-//     strength = 12,
-//     acceleration = 1.2,
-//     deceleration = 0.975,
-//   } = {}) {
-//     this.element = element;
-//     this.distance = strength;
-//     this.acceleration = acceleration;
-//     this.deceleration = deceleration;
-//     this.running = false;
-
-//     this.element.addEventListener('wheel', this.scrollHandler.bind(this), {
-//       passive: false,
-//     });
-//     this.element.addEventListener('mousewheel', this.scrollHandler.bind(this), {
-//       passive: false,
-//     });
-//     this.scroll = this.scroll.bind(this);
-//   }
-
-//   scrollHandler(e) {
-//     e.preventDefault();
-
-//     if (!this.running) {
-//       this.top = this.element.pageYOffset || this.element.scrollTop || 0;
-//       this.running = true;
-//       this.currentDistance = e.deltaY > 0 ? 0.1 : -0.1;
-//       this.isDistanceAsc = true;
-//       this.scroll();
-//     } else {
-//       this.isDistanceAsc = false;
-//       this.currentDistance = e.deltaY > 0 ? this.distance : -this.distance;
-//     }
-//   }
-
-//   scroll() {
-//     if (this.running) {
-//       this.currentDistance *=
-//         this.isDistanceAsc === true ? this.acceleration : this.deceleration;
-//       Math.abs(this.currentDistance) < 0.1 && this.isDistanceAsc === false
-//         ? (this.running = false)
-//         : 1;
-//       Math.abs(this.currentDistance) >= Math.abs(this.distance)
-//         ? (this.isDistanceAsc = false)
-//         : 1;
-
-//       this.top += this.currentDistance;
-//       this.element.scrollTo(0, this.top);
-
-//       requestAnimationFrame(this.scroll);
-//     }
-//   }
-// }
-
-// const scroll = new SmoothScroll({
-//   element: window,
-//   strength: 12,
-//   acceleration: 1.0,
-//   deceleration: 0.975,
-// });
-
 const introWidth = document.querySelector('.intro');
 let t1 = gsap.timeline();
 let t2 = gsap.timeline();
@@ -82,11 +19,11 @@ t1.fromTo(
 t2.fromTo(
   '.nav-logo a',
   {
-    scale: 4.8,
+    scale: 3,
   },
   {
     scale: 1,
-    duration: 1,
+    duration: 0.5,
   }
 );
 
@@ -104,6 +41,18 @@ ScrollTrigger.create({
   end: 'bottom 30%',
   trigger: '.nav-logo',
   scrub: 2.2,
+});
+
+// 네브 사이즈 분기별로
+const nav = document.querySelector('.nav-logo a');
+ScrollTrigger.matchMedia({
+  '(min-width: 800px)': () => {
+    nav.style.fontSize = '3.2rem';
+  },
+  '(max-width: 799px)': () => {
+    nav.style.fontSize = '4vw';
+    nav.style.scale = 1;
+  },
 });
 
 // 네브바 상단고정
@@ -267,7 +216,7 @@ firstImageMove.forEach((item) => {
   });
 });
 
-// Contents Image Move 3
+// Contents Image Move 2
 const secondImageMove = document.querySelectorAll('.listitem:nth-child(3n+2)');
 
 secondImageMove.forEach((item) => {
@@ -283,7 +232,7 @@ secondImageMove.forEach((item) => {
     },
   });
   tl.to(targetElement, {
-    y: '-50%',
+    y: '-100%',
     duration: 1,
   });
 });
