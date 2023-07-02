@@ -2,6 +2,7 @@
 
 /* normaliize */
 @import url('./reset.css');
+@import url('./responsive.css');
 /* font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
@@ -42,6 +43,11 @@ a {
   color: inherit;
 }
 
+body * {
+  border-color: currentColor !important;
+}
+/* 현재 요소에 color 속성값 지정 안 된 경우, 상속받은 color 속성값 사용 */
+
 /* layout */
 /* --- intro--- */
 .intro {
@@ -68,7 +74,7 @@ main {
   left: 0;
   top: 0;
   right: 0;
-  height: 74px;
+  height: 4.625rem; /*75px*/
 }
 .navigation.active {
   position: fixed;
@@ -110,8 +116,8 @@ main {
   justify-content: center;
   align-items: center;
   font-weight: 600;
-  z-index: 1;
-  width: auto;
+  z-index: 4;
+  width: 100%;
 }
 
 .nav-logo a {
@@ -288,9 +294,10 @@ main {
 .img__list {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: start;
   align-items: flex-start;
   padding-top: 3.6em;
+  flex-wrap: wrap;
 }
 
 .listitem:nth-child(6n + 1) {
@@ -308,6 +315,14 @@ main {
 .listitem:nth-child(6n + 4) {
   width: 28%;
   margin-top: 27%;
+}
+.listitem:nth-child(6n + 5) {
+  width: 31.25%;
+  margin-right: 10%;
+}
+.listitem:nth-child(6n + 6) {
+  width: 22%;
+  margin-top: 12%;
 }
 
 .img__element {
