@@ -9,7 +9,7 @@ let t2 = gsap.timeline();
 t1.fromTo(
   ' .nav-logo',
   {
-    y: -180,
+    y: -150,
   },
   {
     y: 0,
@@ -46,10 +46,13 @@ ScrollTrigger.create({
 // 네브 사이즈 분기별로
 const nav = document.querySelector('.nav-logo a');
 ScrollTrigger.matchMedia({
-  '(min-width: 800px)': () => {
-    nav.style.fontSize = '3.2rem';
+  '(min-width: 1076px)': () => {
+    nav.style.fontSize = '3.1rem';
   },
-  '(max-width: 799px)': () => {
+  '(min-width: 831px) and (max-width: 1075px)': () => {
+    nav.style.fontSize = '2.4rem';
+  },
+  '(max-width: 830px)': () => {
     nav.style.fontSize = '4vw';
     nav.style.scale = 1;
   },
@@ -179,6 +182,9 @@ imgWrapper.forEach((triggerElement, index) => {
       trigger: triggerElement,
       start: 'top bottom',
       end: 'bottom bottom',
+      // pin: '.content__img',
+      // anticipatePin: true,
+      // pinSpacing: false,
       onEnter: () => {
         document.querySelectorAll('.title-list').forEach((item) => {
           item.classList.remove('o-title');
@@ -232,7 +238,7 @@ secondImageMove.forEach((item) => {
     },
   });
   tl.to(targetElement, {
-    y: '-100%',
+    y: '-80%',
     duration: 1,
   });
 });
@@ -249,11 +255,11 @@ thirdImageMove.forEach((item) => {
       trigger: triggerElement,
       start: 'top bottom',
       end: 'bottom top',
-      scrub: 1.5,
+      scrub: 3,
     },
   });
   tl.to(targetElement, {
-    y: '-30%',
+    y: '-50%',
     duration: 1,
   });
 });

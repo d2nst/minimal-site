@@ -1,1 +1,68 @@
 @charset "UTF-8";
+@import url('./style.css');
+
+/* 모바일 (해상도 360px ~ 767px)*/
+@media (min-width: 320px) and (max-width: 767px) {
+  .content .container {
+    padding-right: 3em;
+    padding-left: 3em;
+  }
+  .contents__title {
+    margin-top: -10vh;
+  }
+
+  .img__list {
+    padding-bottom: 3.2rem;
+  }
+
+  .listitem:nth-child(6n + 1) {
+    width: 23%;
+    margin-right: 7%;
+  }
+  .listitem:nth-child(6n + 2) {
+    width: 18%;
+    margin-right: 6.25%;
+    margin-top: 24%;
+  }
+  .listitem:nth-child(6n + 3) {
+    width: 12%;
+  }
+  .listitem:nth-child(6n + 4) {
+    width: 23%;
+    margin-top: 27%;
+  }
+  .listitem:nth-child(6n + 5) {
+    width: 28%;
+    margin-right: 10%;
+  }
+  .listitem:nth-child(6n + 6) {
+    width: 19%;
+    margin-top: 12%;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav__wrap {
+    padding: 0.9rem 0.5rem;
+  }
+  .nav-side {
+    width: 6em;
+    text-align: center;
+    font-size: 0.6rem;
+  }
+
+  .nav-side a {
+    padding-right: 0;
+    display: block;
+  }
+
+  .header-circle {
+    margin-top: -20vh;
+  }
+  .header-text__wrap .text__wrap .text {
+    font-size: 3rem;
+  }
+  .contents__title {
+    margin-top: -30vh;
+  }
+}

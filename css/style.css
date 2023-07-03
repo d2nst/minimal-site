@@ -294,23 +294,23 @@ main {
 .img__list {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: space-around;
   align-items: flex-start;
   padding-top: 3.6em;
   flex-wrap: wrap;
 }
 
 .listitem:nth-child(6n + 1) {
-  width: 24%;
+  width: 22%;
   margin-right: 7%;
 }
 .listitem:nth-child(6n + 2) {
-  width: 15%;
+  width: 17%;
   margin-right: 6.25%;
   margin-top: 24%;
 }
 .listitem:nth-child(6n + 3) {
-  width: 12%;
+  width: 11%;
 }
 .listitem:nth-child(6n + 4) {
   width: 28%;
